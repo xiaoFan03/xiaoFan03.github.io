@@ -7,21 +7,256 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>xiaoFan</copyright>
-        <lastBuildDate>Mon, 05 Oct 2026 15:46:22 +0800</lastBuildDate><atom:link href="https://xiaoFan03.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>DeployTest</title>
-        <link>https://xiaoFan03.github.io/p/deploytest/</link>
-        <pubDate>Mon, 05 Oct 2026 15:46:22 +0800</pubDate>
+        <lastBuildDate>Mon, 05 Oct 2026 19:14:09 +0800</lastBuildDate><atom:link href="https://xiaoFan03.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>machineLearn</title>
+        <link>https://xiaoFan03.github.io/p/machinelearn/</link>
+        <pubDate>Mon, 05 Oct 2026 19:14:09 +0800</pubDate>
         
-        <guid>https://xiaoFan03.github.io/p/deploytest/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>MyFirstBlog</title>
-        <link>https://xiaoFan03.github.io/p/myfirstblog/</link>
-        <pubDate>Sun, 04 Oct 2026 21:12:46 +0800</pubDate>
-        
-        <guid>https://xiaoFan03.github.io/p/myfirstblog/</guid>
-        <description></description>
+        <guid>https://xiaoFan03.github.io/p/machinelearn/</guid>
+        <description>&lt;h2 id=&#34;一aimldl概念与人工智能三要素&#34;&gt;一、AI、ML、DL概念与人工智能三要素
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;AI（人工智能）&lt;/strong&gt;：一个大的技术领域总称，目标是让机器模拟、实现类人的智能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ML（机器学习）&lt;/strong&gt;：实现人工智能的重要途径，让机器从数据中自动学习规律，而不是完全依靠人工写死规则。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;DL（深度学习）&lt;/strong&gt;：机器学习的子集，依托多层神经网络进行学习。&lt;/p&gt;
+&lt;p&gt;三者包含关系：$\boldsymbol{AI \supset ML \supset DL}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;人工智能三要素&#34;&gt;人工智能三要素
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;数据：模型学习的原材料。&lt;/li&gt;
+&lt;li&gt;算法：学习的方法。&lt;/li&gt;
+&lt;li&gt;算力：支撑算法运算的硬件能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;核心结论：&lt;strong&gt;数据决定了模型效果的上限，算法和算力更多是逼近这个上限。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;两种学习范式&#34;&gt;两种学习范式
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;基于规则的学习&lt;/strong&gt;：人工预先编写固定规则，机器按规则执行，无法从数据归纳新规律。代表：早期专家系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基于模型的学习（机器学习主流）&lt;/strong&gt;：提供数据，让机器自动学习得到模型，依靠模型完成预测。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;二数据集相关概念&#34;&gt;二、数据集相关概念
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;特征 $x$：用来做预测的输入信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;标签 $y$：我们想要预测的目标结果。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;D:%5cDesktop%5cXiaoFanBlog%5chugo_extended_withdeploy_0.155.2_windows-amd64%5cdev%5ccontent%5cpost%5cMachineLearn%5cml_dataset.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据集划分&#34;&gt;数据集划分
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;训练集 train（70%~80%）&lt;/strong&gt;：携带特征与标签，用来训练模型，学习内在规律。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;测试集 test（20%~30%）&lt;/strong&gt;：检验模型在未见过数据上的泛化效果，&lt;strong&gt;测试集不能参与调参&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;未知数据集&lt;/strong&gt;：只有特征、没有标签，模型上线后现实业务待预测的数据。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通俗理解：训练集用来“教模型”，测试集用来“考试检验模型”。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;三机器学习四大任务类别&#34;&gt;三、机器学习四大任务类别
+&lt;/h2&gt;&lt;h3 id=&#34;1-监督学习训练数据带有标签&#34;&gt;1. 监督学习（训练数据带有标签）
+&lt;/h3&gt;&lt;p&gt;学习特征与标签之间的映射关系，分为回归、分类。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回归任务&lt;/strong&gt;：标签为连续数值。&lt;em&gt;代表算法&lt;/em&gt;：线性回归(Linear Regression)、回归树。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分类任务&lt;/strong&gt;：标签为离散类别。&lt;em&gt;代表算法&lt;/em&gt;：逻辑回归、SVM支持向量机、决策树、随机森林。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-无监督学习数据无标签挖掘数据内在结构&#34;&gt;2. 无监督学习（数据无标签，挖掘数据内在结构）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;K‑Means聚类、层次聚类、DBSCAN密度聚类（可识别噪声，不需要预设簇数量）.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-半监督学习&#34;&gt;3. 半监督学习
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;少量带标签数据 + 大量无标签数据共同训练，&lt;strong&gt;降低人工标注成本&lt;/strong&gt;,适用于标注昂贵的图片等场景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-强化学习&#34;&gt;4. 强化学习
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;核心思想：智能体 Agent 在环境中不断试错，最大化累积奖励，学习最优决策策略。&lt;/li&gt;
+&lt;li&gt;四要素：智能体、环境状态、行动、奖励。&lt;/li&gt;
+&lt;li&gt;典型场景：AlphaGo围棋、机器人控制、游戏博弈、无人驾驶。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;四机器学习完整工作流程&#34;&gt;四、机器学习完整工作流程
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;获取数据 → 数据预处理 → 特征工程 → 模型训练 → 模型评估&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;D:%5cDesktop%5cXiaoFanBlog%5chugo_extended_withdeploy_0.155.2_windows-amd64%5cdev%5ccontent%5cpost%5cMachineLearn%5cprocess.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;获取数据&lt;/strong&gt;：来源包括数据库、日志、网页抓取、文本、图像等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据预处理&lt;/strong&gt;：处理缺失值、重复数据、逻辑错误；做数据集成、变换、离散化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特征工程&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;特征提取：从原始数据提取任务相关信息。&lt;/li&gt;
+&lt;li&gt;特征预处理：标准化、归一化、类别编码。&lt;/li&gt;
+&lt;li&gt;特征降维：如PCA，减少特征数量。&lt;/li&gt;
+&lt;li&gt;特征筛选：保留高相关特征，剔除无关特征。&lt;/li&gt;
+&lt;li&gt;特征组合：多个旧特征合成新特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型训练&lt;/strong&gt;：根据任务类型选择对应算法训练模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型评估&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;分类任务指标：准确率、混淆矩阵、精确率、召回率、F1‑score。&lt;/li&gt;
+&lt;li&gt;回归任务指标：MAE、MSE、RMSE、$R^2$。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;五拟合泛化与奥卡姆剃刀原则&#34;&gt;五、拟合、泛化与奥卡姆剃刀原则
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;欠拟合&lt;/strong&gt;：模型过于简单；训练集、测试集效果都很差，没有学到数据规律。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;刚好拟合&lt;/strong&gt;：模型学到真实规律，训练集与测试集效果均良好，是期望的状态。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;过拟合&lt;/strong&gt;：模型过于复杂；训练集效果极好，测试集效果很差，记住训练集噪声，泛化能力差。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;缓解手段：扩充训练数据、正则化、决策树剪枝、降低模型复杂度。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;泛化能力&lt;/strong&gt;：模型在从未见过的新样本上的预测能力，即机器学习训练的最终目标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;奥卡姆剃刀原则&lt;/strong&gt;：两个模型泛化误差相同时，优先选择结构更简单的模型，降低过拟合风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;六归一化与标准化无量纲化&#34;&gt;六、归一化与标准化（无量纲化）
+&lt;/h2&gt;&lt;p&gt;消除不同特征量纲差异，均衡各特征对模型的影响。&lt;/p&gt;
+&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;项目&lt;/th&gt;
+					&lt;th&gt;归一化 MinMaxScaler&lt;/th&gt;
+					&lt;th&gt;标准化 StandardScaler(Z‑score)&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;输出结果&lt;/td&gt;
+					&lt;td&gt;映射固定区间，默认 $[0,1]$&lt;/td&gt;
+					&lt;td&gt;均值0，标准差1，无固定区间&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;异常值敏感度&lt;/td&gt;
+					&lt;td&gt;高，鲁棒性差&lt;/td&gt;
+					&lt;td&gt;少量异常影响小，鲁棒性更强&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;适用场景&lt;/td&gt;
+					&lt;td&gt;小数据集、几乎无异常点&lt;/td&gt;
+					&lt;td&gt;工业大数据、带噪声，项目更常用&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️距离类算法例如KNN，&lt;strong&gt;必须做归一化/标准化&lt;/strong&gt;，防止数值量级大的特征主导距离计算。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注：鲁棒性代表模型、算法抵抗噪声、异常值、输入扰动的能力。&lt;/p&gt;
+&lt;h2 id=&#34;七sklearn-通用四步流程&#34;&gt;七、skLearn 通用四步流程
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;准备数据：读取数据，划分特征$x$、标签$y$；划分训练集、测试集，按需预处理。&lt;/li&gt;
+&lt;li&gt;实例化模型对象。&lt;/li&gt;
+&lt;li&gt;模型训练：调用 &lt;code&gt;model.fit(x_train, y_train)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;预测评估：&lt;code&gt;model.predict(x_test)&lt;/code&gt;得到预测结果，计算评估指标。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;八重点算法梳理&#34;&gt;八、重点算法梳理
+&lt;/h2&gt;&lt;h3 id=&#34;1k近邻算法knn&#34;&gt;1.K近邻算法（KNN）
+&lt;/h3&gt;&lt;p&gt;若一个样本的最近的k个邻居都属于某一类别$X$,那么这个样本也就属于这个类别$X$。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分类：取距离最近K个样本，多数投票判定类别。&lt;/li&gt;
+&lt;li&gt;回归：取距离最近K个样本标签的平均值作为预测结果。&lt;/li&gt;
+&lt;li&gt;距离度量：欧氏距离（默认）、曼哈顿距离、切比雪夫距离。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-线性回归&#34;&gt;2. 线性回归
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;一元线性回归：$y=wx+b$，单个特征。&lt;/li&gt;
+&lt;li&gt;多元线性回归：$y = w_1x_1+w_2x_2+\dots +b$，多个特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参数求解两种途径：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;解析方程直接求解；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;梯度下降迭代寻优&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;梯度下降三类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全梯度下降：使用全部样本，计算精细，速度慢。&lt;/li&gt;
+&lt;li&gt;随机梯度下降：每次只用1个样本，速度快，结果不稳定。&lt;/li&gt;
+&lt;li&gt;小批量随机梯度下降：工程上最常用，折中两者优缺点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;学习率：步长太小收敛缓慢；步长过大震荡，甚至梯度爆炸。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;回归损失评估指标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MAE平均绝对误差：对异常值不敏感。&lt;/li&gt;
+&lt;li&gt;MSE均方误差、RMSE均方根误差：会放大异常样本带来的误差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-逻辑回归&#34;&gt;3. 逻辑回归
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;名字带“回归”，本质是&lt;strong&gt;二分类算法&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;流程：线性输出送入 Sigmoid 函数，映射到 $[0,1]$ 的概率；设置阈值划分两类。&lt;/li&gt;
+&lt;li&gt;损失函数：交叉熵损失；理论依托极大似然估计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-kmeans聚类无监督&#34;&gt;4. K‑Means聚类（无监督）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;通过参数&lt;code&gt;n_clusters&lt;/code&gt;指定簇的数量K；迭代执行样本分配、更新簇中心直至收敛。&lt;/li&gt;
+&lt;li&gt;缺点：对初始簇中心点、离群点比较敏感。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;九分类模型评估指标&#34;&gt;九、分类模型评估指标
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;混淆矩阵&lt;/strong&gt;
+四个基础计数：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;TP 真正例：真实正例，预测为正例&lt;/li&gt;
+&lt;li&gt;FN 假负例：真实正例，预测为负例&lt;/li&gt;
+&lt;li&gt;FP 假正例：真实负例，预测为正例&lt;/li&gt;
+&lt;li&gt;TN 真负例：真实负例，预测为负例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;混淆矩阵是精确率、召回率、F1分数的计算基础。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;精确率
+&lt;/p&gt;
+$$
+Precision=\frac{TP}{TP+FP}
+$$&lt;p&gt;
+在所有被预测为正例的样本中，真实正例所占比例。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;召回率
+&lt;/p&gt;
+$$
+Recall=\frac{TP}{TP+FN}
+$$&lt;p&gt;
+全部真实正例当中，被模型成功识别出来的比例。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;F1分数
+精确率与召回率的调和平均，综合衡量两项性能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+$$
+F1 = 2\times\frac{Precision \times Recall}{Precision+Recall}
+$$</description>
         </item>
         
     </channel>
