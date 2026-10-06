@@ -7,7 +7,211 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>xiaoFan</copyright>
-        <lastBuildDate>Mon, 05 Oct 2026 19:14:09 +0800</lastBuildDate><atom:link href="https://xiaoFan03.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 06 Oct 2026 20:26:56 +0800</lastBuildDate><atom:link href="https://xiaoFan03.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>DeepLearn</title>
+        <link>https://xiaoFan03.github.io/p/deeplearn/</link>
+        <pubDate>Tue, 06 Oct 2026 20:26:56 +0800</pubDate>
+        
+        <guid>https://xiaoFan03.github.io/p/deeplearn/</guid>
+        <description>&lt;h2 id=&#34;深度学习简介什么是神经网络&#34;&gt;深度学习简介：什么是神经网络？
+&lt;/h2&gt;&lt;p&gt;深度学习是&lt;strong&gt;模拟生物思考方式的算法模型&lt;/strong&gt;，我们也将其称为神经网络。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特征工程&lt;/strong&gt;：传统机器学习中，需要人工手动从原始数据挑选、加工有用信息，交给模型学习。而深度学习最大特点：&lt;strong&gt;不需要人工做特征工程&lt;/strong&gt;，神经网络可以自行从原始数据中提取特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;黑盒子&lt;/strong&gt;：深度学习模型的短板。模型可以输出预测结果，但很难解释模型做出判断的内在逻辑，内部计算过程难以直观解读。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;神经网络主要分为三大类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;ANN（人工神经网络）&lt;/strong&gt;：最基础的全连接神经网络，每一层神经元都和下一层全部神经元相连；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CNN（卷积神经网络）&lt;/strong&gt;：多用于图像任务，擅长提取图片的局部特征；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RNN（循环神经网络）&lt;/strong&gt;：专门处理序列数据，例如文本语句、时间序列。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;张量深度学习的数据容器&#34;&gt;张量：深度学习的数据容器
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;张量（Tensor）&lt;/strong&gt; 是深度学习底层数据结构，可以简单理解为：&lt;strong&gt;存放数字的多维数组&lt;/strong&gt;。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;张量是深度学习的底层数据结构；&lt;/li&gt;
+&lt;li&gt;张量仅能存储数值数据，文本、类别等非数字信息，必须提前转换成数字，才可以存入张量；&lt;/li&gt;
+&lt;li&gt;在 PyTorch 中，无论什么原始数据，都需要封装成张量，才能够送入网络计算。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;举个例子：一张彩色图片，本质就是数字组成的三维张量；一句话经过编码处理之后，同样会转化为张量。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;创建张量&#34;&gt;创建张量
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;基本方式&lt;/strong&gt;&lt;code&gt;tensor()&lt;/code&gt; / &lt;code&gt;Tensor()&lt;/code&gt; / &lt;code&gt;IntTensor()&lt;/code&gt;、&lt;code&gt;FloatTensor()&lt;/code&gt;，直接将数字列表转换为张量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;线性张量：生成均匀分布的一串数字&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;range(start,end,step)&lt;/code&gt;：按照步长生成数字，&lt;strong&gt;不包含 end&lt;/strong&gt;（包左不包右）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;linspace(start,end,steps)&lt;/code&gt;：在起止区间内，生成指定个数元素，&lt;strong&gt;包含首尾数值&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;随机张量：生成随机数字的张量，常用于参数初始化&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rand()&lt;/code&gt;、&lt;code&gt;randn()&lt;/code&gt;、&lt;code&gt;randint()&lt;/code&gt;：生成不同分布的随机数；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;随机种子：&lt;code&gt;initial_seed&lt;/code&gt; 获取当前随机种子；manual_seed()` 设置随机种子。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;设置相同种子，每次运行可以得到完全一致的随机数，方便实验结果复现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;指定值张量：快速生成全 0、全 1 张量&lt;/strong&gt;&lt;code&gt;ones()&lt;/code&gt; / &lt;code&gt;zeros()&lt;/code&gt; / &lt;code&gt;full()&lt;/code&gt;；还有&lt;code&gt;ones_like()&lt;/code&gt;、&lt;code&gt;zeros_like()&lt;/code&gt;，参照另一个张量的形状，生成相同尺寸的全 1 / 全 0 张量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;指定元素值类型：修改张量内部数字的数据类型&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;张量对象.type(目标类型)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;快捷写法：&lt;code&gt;half()&lt;/code&gt;、&lt;code&gt;short()&lt;/code&gt;、&lt;code&gt;int()&lt;/code&gt;、&lt;code&gt;long()&lt;/code&gt;、&lt;code&gt;float()&lt;/code&gt;、&lt;code&gt;double()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;张量类型转换&#34;&gt;张量类型转换
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;张量 ↔ ndarray（Numpy 数组）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;张量转 numpy 数组：&lt;code&gt;张量.numpy()&lt;/code&gt;，&lt;strong&gt;默认共享内存&lt;/strong&gt;，修改其中一个，另一个同步变化；增加&lt;code&gt;.copy()&lt;/code&gt;之后不再共享内存；&lt;/li&gt;
+&lt;li&gt;numpy 数组转张量：&lt;code&gt;torch.from_numpy(数组)&lt;/code&gt; 共享内存；&lt;code&gt;torch.tensor(数组)&lt;/code&gt; 不共享内存。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;张量 → 标量（单个数字）&lt;/strong&gt;：&lt;code&gt;张量.item()&lt;/code&gt;，&lt;strong&gt;仅张量内只有 1 个元素时才能够使用&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;张量数值计算&#34;&gt;张量数值计算
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;基础四则运算&lt;/strong&gt;：&lt;code&gt;add&lt;/code&gt;、&lt;code&gt;sub&lt;/code&gt;、&lt;code&gt;mul&lt;/code&gt;、&lt;code&gt;div&lt;/code&gt;。不带下划线例如&lt;code&gt;add()&lt;/code&gt;，不修改原始张量，返回全新张量；带下划线&lt;code&gt;add_()&lt;/code&gt;代表原地运算，直接修改原始张量。日常编码直接使用运算符 &lt;code&gt;+ - * /&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;点乘运算&lt;/strong&gt;：对应位置数字一一相乘，&lt;strong&gt;要求两个张量形状完全一致&lt;/strong&gt;；写法为&lt;code&gt;*&lt;/code&gt;或者&lt;code&gt;.mul()&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;矩阵乘法&lt;/strong&gt;：神经网络最核心运算！要求前一个张量的列数等于后一个张量的行数；语法为&lt;code&gt;@&lt;/code&gt;或者&lt;code&gt;.matmul()&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️注意区分：点乘是元素位置一一相乘；矩阵乘法是线性代数标准矩阵相乘，二者完全不同，是新手高频易错点。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;张量运算函数&#34;&gt;张量运算函数
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;sum(dim)&lt;/code&gt;、&lt;code&gt;mean(dim)&lt;/code&gt;、&lt;code&gt;log&lt;/code&gt;、&lt;code&gt;pow&lt;/code&gt;、&lt;code&gt;sqrt&lt;/code&gt;、&lt;code&gt;exp&lt;/code&gt;、&lt;code&gt;max&lt;/code&gt;、&lt;code&gt;min&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;参数&lt;code&gt;dim&lt;/code&gt;代表运算执行的维度；不传&lt;code&gt;dim&lt;/code&gt;时，会针对张量全部元素整体求和 / 求平均，输出单个标量张量。&lt;/p&gt;
+&lt;h3 id=&#34;张量索引操作&#34;&gt;张量索引操作
+&lt;/h3&gt;&lt;p&gt;索引用于取出张量中的部分数据，逻辑和 Python 列表切片相似：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;简单行列索引：&lt;code&gt;tensor[0]&lt;/code&gt;获取第一行；&lt;code&gt;tensor[:,0]&lt;/code&gt;获取第一列；&lt;/li&gt;
+&lt;li&gt;范围索引：&lt;code&gt;[行起始:行结束:步长, 列起始:列结束:步长]&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;列表索引、布尔索引；&lt;/li&gt;
+&lt;li&gt;多维索引：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dim=0&lt;/code&gt; 代表 0 轴，也就是最外层维度；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dim=-1&lt;/code&gt; 代表最后一维，即最内层维度，写代码中使用频率很高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;张量形状操作&#34;&gt;张量形状操作
+&lt;/h3&gt;&lt;p&gt;用于修改张量的维度与外形，&lt;strong&gt;约束条件：修改前后张量的元素总数量必须相等&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;reshape&lt;/code&gt;：改变张量维度排布，不改动原始数据；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;squeeze&lt;/code&gt; / &lt;code&gt;unsqueeze&lt;/code&gt;：删除 / 增加长度为 1 的维度，常用来适配网络输入格式；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;transpose&lt;/code&gt; / &lt;code&gt;permute&lt;/code&gt;：交换维度顺序。&lt;code&gt;transpose&lt;/code&gt;仅可以交换两个维度；&lt;code&gt;permute&lt;/code&gt;能够一次性调整全部维度顺序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;张量的拼接cat-和-stack&#34;&gt;张量的拼接：cat 和 stack
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;cat / concat&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;规则：不参与拼接的维度必须保持相同，正在拼接的维度大小不作限制；&lt;/li&gt;
+&lt;li&gt;特点：拼接完成后张量维度数量不变，&lt;strong&gt;不会新增维度&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;stack&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;规则：参与拼接的全部张量形状必须完全一模一样；&lt;/li&gt;
+&lt;li&gt;特点：产生一个全新维度（升维），拼接后张量维度数量 + 1。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通俗理解：&lt;code&gt;cat&lt;/code&gt; 是在现有的维度上将多组数据接长；&lt;code&gt;stack&lt;/code&gt; 是新增一层，把多个张量堆叠在一起。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;三自动微分模块神经网络训练的核心bp-反向传播&#34;&gt;三、自动微分模块：神经网络训练的核心（BP 反向传播）
+&lt;/h2&gt;&lt;p&gt;这部分是神经网络训练底层原理，也是 PyTorch 强大的核心功能：&lt;strong&gt;自动微分&lt;/strong&gt;，通俗讲就是自动求导。我们不需要手动推导复杂函数的导数，PyTorch 会自动帮我们计算梯度（导数）。&lt;/p&gt;
+&lt;p&gt;神经网络训练使用&lt;strong&gt;反向传播算法（BP 算法）&lt;/strong&gt;，整体流程分为两步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;前向传播 &lt;code&gt;forward()&lt;/code&gt;&lt;/strong&gt;：输入数据X，经过网络权重w、偏置b，得到预测值；再通过损失函数计算损失&lt;code&gt;loss&lt;/code&gt;。&lt;code&gt;loss&lt;/code&gt;用来衡量模型预测结果和真实标签y之间的差距，loss 越大，代表预测效果越差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反向传播 &lt;code&gt;backward()&lt;/code&gt;&lt;/strong&gt;：调用&lt;code&gt;backward()&lt;/code&gt;函数，自动微分模块会从 loss 出发反向求导，计算损失对于每一个参数w、b的梯度（grad）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;梯度下降公式&#34;&gt;梯度下降公式
+&lt;/h3&gt;&lt;p&gt;\(W_1 = W_0 - lr * grad\)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(W_0\)：当前权重；&lt;/li&gt;
+&lt;li&gt;lr：&lt;strong&gt;学习率&lt;/strong&gt;，控制参数每一次更新的步长大小；&lt;/li&gt;
+&lt;li&gt;grad：梯度（导数），指示参数调整方向，朝着该方向调整可以降低损失。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一句话总结：前向传播计算预测误差；反向传播自动求解梯度；利用梯度下降更新权重与偏置，循环迭代不断降低损失，提升模型预测效果。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;四神经网络基础组件&#34;&gt;四、神经网络基础组件
+&lt;/h2&gt;&lt;p&gt;神经网络是模仿生物神经网络结构与功能的计算模型，搭建神经网络，本质就是构建神经元。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xiaoFan03.github.io/%5ccontent%5cpost%5cDeepLearn%5cDL1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;神经元内部过程&lt;/strong&gt;：输入数据先完成线性求和，将结果送入激活函数，计算得到激活输出值。&lt;/p&gt;
+&lt;h3 id=&#34;神经网络构成&#34;&gt;神经网络构成
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;输入层&lt;/strong&gt;：接收输入x的层，如图像、文本、声音等。每一个输入特征对应一个神经元，负责把数据传递给下一层网络。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;输出层&lt;/strong&gt;：输出预测结果y的层，神经元会根据具体任务输出最终预测。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;隐藏层&lt;/strong&gt;：处于输入层、输出层中间的全部层。隐藏层的数量决定神经网络的深度；内部神经元完成加权运算与激活函数处理，将结果传递到下一层。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://xiaoFan03.github.io/%5ccontent%5cpost%5cDeepLearn%5cANN.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;激活函数可作用于隐藏层输出层&#34;&gt;激活函数（可作用于隐藏层、输出层）
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;作用：赋予网络拟合复杂场景的能力，用于分类等各类任务。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;sigmoid-函数&#34;&gt;Sigmoid 函数
+&lt;/h4&gt;&lt;p&gt;可以将任意输入映射到区间\((0,1)\)；当输入小于 - 6 或者大于 6 时，导数趋近于 0，梯度更新缓慢甚至发生梯度消失；仅在\([-6,6]\)区间梯度变化明显。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;备注：Sigmoid 多用于输出层，适配二分类任务；如果放在隐藏层，网络层数建议不超过 4 层。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;tanh-函数&#34;&gt;Tanh 函数
+&lt;/h4&gt;&lt;p&gt;将任意输入映射至\((-1,1)\)；输入小于‑3 或者大于 3，导数趋近于 0，会出现梯度下降缓慢、梯度消失；\([-3,3]\)区间梯度效果明显。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;备注：Tanh 大多用于隐藏层。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;relu-函数&#34;&gt;Relu 函数
+&lt;/h4&gt;&lt;p&gt;小于 0 的输入直接映射为 0，大于 0 的输入保持原值不变。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;备注：Relu 一般用于隐藏层。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;softmax-函数&#34;&gt;Softmax 函数
+&lt;/h4&gt;&lt;p&gt;输出各个类别的预测概率，全部类别概率累加等于 1；选取概率最大值对应的类别作为最终预测结果。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;备注：Softmax 大多放在输出层，解决多分类任务。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结
+&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://xiaoFan03.github.io/%5ccontent%5cpost%5cDeepLearn%5cfunctionUse.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;参数初始化&#34;&gt;参数初始化
+&lt;/h3&gt;&lt;p&gt;神经网络正式训练之前，需要给所有权重、偏置赋予初始数值。训练的本质就是持续微调初始参数、降低预测误差。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若初始化的数值不合理，模型训练从一开始就会走向错误方向，后续调参很难挽回效果。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>machineLearn</title>
         <link>https://xiaoFan03.github.io/p/machinelearn/</link>
         <pubDate>Mon, 05 Oct 2026 19:14:09 +0800</pubDate>
@@ -47,7 +251,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;标签 $y$：我们想要预测的目标结果。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;D:%5cDesktop%5cXiaoFanBlog%5chugo_extended_withdeploy_0.155.2_windows-amd64%5cdev%5ccontent%5cpost%5cMachineLearn%5cml_dataset.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://xiaoFan03.github.io/%5ccontent%5cpost%5cMachineLearn%5cml_dataset.png&#34;
 	
 	
 	
@@ -89,7 +293,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;四机器学习完整工作流程&#34;&gt;四、机器学习完整工作流程
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;获取数据 → 数据预处理 → 特征工程 → 模型训练 → 模型评估&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;D:%5cDesktop%5cXiaoFanBlog%5chugo_extended_withdeploy_0.155.2_windows-amd64%5cdev%5ccontent%5cpost%5cMachineLearn%5cprocess.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://xiaoFan03.github.io/%5ccontent%5cpost%5cMachineLearn%5cprocess.png&#34;
 	
 	
 	
