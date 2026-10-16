@@ -6,11 +6,11 @@
 
 <link rel='canonical' href='https://xiaoFan03.github.io/post/'>
 
-<link rel="stylesheet" href="/scss/style.min.6ba8b9ea95cedbd14d34969a3a28210289d3a74cba725c37699a1455f78e7135.css"><meta property='og:title' content="Posts">
+<link rel="stylesheet" href="/scss/style.min.a7d786e3f52b867e1585ece982b0ed4a1493e4ebdaac00a227824aa87a198cc7.css"><meta property='og:title' content="Posts">
 <meta property='og:description' content="你好，欢迎来到我的网站，此博客由【Hugo+Stack】来进行搭建，主要分享个人生活和学习笔记。">
 <meta property='og:url' content='https://xiaoFan03.github.io/post/'>
 <meta property='og:site_name' content='XiaoFan'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-10-06T20:26:56&#43;08:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-10-11T14:58:50&#43;08:00 '/>
 <meta name="twitter:title" content="Posts">
 <meta name="twitter:description" content="你好，欢迎来到我的网站，此博客由【Hugo+Stack】来进行搭建，主要分享个人生活和学习笔记。"><link rel="alternate" type="application/rss&#43;xml" href="https://xiaoFan03.github.io/post/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -139,7 +139,7 @@
         
         
         <li >
-            <a href='/%E5%85%B3%E4%BA%8E-about/' >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
                 
                 
                 
@@ -152,7 +152,7 @@
 
 
                 
-                <span>关于 | About</span>
+                <span>关于</span>
             </a>
         </li>
         
@@ -172,7 +172,7 @@
 
 
                 
-                <span>归档 | Archives</span>
+                <span>归档</span>
             </a>
         </li>
         
@@ -191,13 +191,13 @@
 
 
                 
-                <span>搜索 | Search</span>
+                <span>搜索</span>
             </a>
         </li>
         
         
         <li >
-            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5-links/' >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
                 
                 
                 
@@ -210,7 +210,7 @@
 
 
                 
-                <span>友情链接 | Links</span>
+                <span>友情链接</span>
             </a>
         </li>
         
@@ -288,7 +288,7 @@
                     <a href="/archives/#2026">
                         
                             <span class="year">2026</span>
-                            <span class="count">2</span>
+                            <span class="count">3</span>
                         
                     </a> 
                 </div>
@@ -344,6 +344,10 @@
                 AI
             </a>
         
+            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+            </a>
+        
     </div>
 </section>
 
@@ -362,7 +366,7 @@
 
         <div class="section-card">
             <div class="section-details">
-                <h3 class="section-count">2 个页面</h3>
+                <h3 class="section-count">3 个页面</h3>
                 <h1 class="section-term">Posts</h1>
                 
             </div>
@@ -372,6 +376,17 @@
     <section class="article-list--compact">
         
             <article>
+    <a href="/p/essayreading/">
+        <div class="article-details">
+            <h2 class="article-title">EssayReading</h2>
+            <footer class="article-time">
+                <time datetime='2026-10-11T14:58:50&#43;08:00'>2026-10-11</time>
+            </footer>
+        </div>
+    </a>
+</article>
+        
+            <article>
     <a href="/p/deeplearn/">
         <div class="article-details">
             <h2 class="article-title">DeepLearn</h2>
@@ -379,6 +394,15 @@
                 <time datetime='2026-10-06T20:26:56&#43;08:00'>2026-10-06</time>
             </footer>
         </div>
+            <div class="article-image">
+                <img src="/p/deeplearn/dl_hu_2ca7a2a6d36b439e.JPG" 
+                        width="120"
+                        height="120" 
+                        alt="DeepLearn"
+                        loading="lazy">
+                
+            </div>
+        
     </a>
 </article>
         
@@ -390,6 +414,15 @@
                 <time datetime='2026-10-05T19:14:09&#43;08:00'>2026-10-05</time>
             </footer>
         </div>
+            <div class="article-image">
+                <img src="/p/machinelearn/ml_hu_87e40238a1a4c547.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="machineLearn"
+                        loading="lazy">
+                
+            </div>
+        
     </a>
 </article>
         
@@ -430,14 +463,48 @@
 </script>
 <div id="particles-js"></div>
 
-<script src=https://xiaoFan03.github.io/background/particles.min.js></script>
+<script src="https://xiaoFan03.github.io/background/particles.min.js"></script>
 <script>
-  particlesJS.load('particles-js', "https://xiaoFan03.github.io/background/particlesjs-config.json", function() {
+  
+  particlesJS.load('particles-js', "https:\/\/xiaoFan03.github.io\/background\/particlesjs-config.json", function() {
     console.log('particles.js loaded - callback');
   });
+
+  
+  function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+
+
 </script>
 
 <style>
+
+   
   #particles-js {
     position: fixed;
     top: 0;
@@ -445,6 +512,20 @@
     width: 100%;
     z-index: -1;
   }
+
+   
+  #backTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        z-index: 99;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-image: url(https://xiaoFan03.github.io/icons/backTop.svg);
+    }
+
+
 </style>
 S
     </body>

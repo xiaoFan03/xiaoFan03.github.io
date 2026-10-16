@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="This is a test page for i18n support.\n">
-<title>关于 | About</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="">
+<title>EssayReading</title>
 
-<link rel='canonical' href='https://xiaoFan03.github.io/%E5%85%B3%E4%BA%8E-about/'>
+<link rel='canonical' href='https://xiaoFan03.github.io/p/essayreading/'>
 
-<link rel="stylesheet" href="/scss/style.min.6ba8b9ea95cedbd14d34969a3a28210289d3a74cba725c37699a1455f78e7135.css"><meta property='og:title' content="关于 | About">
-<meta property='og:description' content="This is a test page for i18n support.\n">
-<meta property='og:url' content='https://xiaoFan03.github.io/%E5%85%B3%E4%BA%8E-about/'>
+<link rel="stylesheet" href="/scss/style.min.a7d786e3f52b867e1585ece982b0ed4a1493e4ebdaac00a227824aa87a198cc7.css"><meta property='og:title' content="EssayReading">
+<meta property='og:description' content="">
+<meta property='og:url' content='https://xiaoFan03.github.io/p/essayreading/'>
 <meta property='og:site_name' content='XiaoFan'>
-<meta property='og:type' content='article'><meta property='article:section' content='Page' />
-<meta name="twitter:title" content="关于 | About">
-<meta name="twitter:description" content="This is a test page for i18n support.\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-11T14:58:50&#43;08:00'/><meta property='article:modified_time' content='2026-10-11T14:58:50&#43;08:00'/>
+<meta name="twitter:title" content="EssayReading">
+<meta name="twitter:description" content="">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -140,8 +140,8 @@
         </li>
         
         
-        <li  class='current' >
-            <a href='/%E5%85%B3%E4%BA%8E-about/' >
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
                 
                 
                 
@@ -154,7 +154,7 @@
 
 
                 
-                <span>关于 | About</span>
+                <span>关于</span>
             </a>
         </li>
         
@@ -174,7 +174,7 @@
 
 
                 
-                <span>归档 | Archives</span>
+                <span>归档</span>
             </a>
         </li>
         
@@ -193,13 +193,13 @@
 
 
                 
-                <span>搜索 | Search</span>
+                <span>搜索</span>
             </a>
         </li>
         
         
         <li >
-            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5-links/' >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
                 
                 
                 
@@ -212,7 +212,7 @@
 
 
                 
-                <span>友情链接 | Links</span>
+                <span>友情链接</span>
             </a>
         </li>
         
@@ -256,7 +256,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/%E5%85%B3%E4%BA%8E-about/">关于 | About</a>
+            <a href="/p/essayreading/">EssayReading</a>
         </h2>
     
         
@@ -267,6 +267,19 @@
     
     
     <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-10-11T14:58:50&#43;08:00'>2026-10-11</time>
+            </div>
         
 
         
@@ -280,7 +293,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 0 分钟
                 </time>
             </div>
         
@@ -295,8 +308,7 @@
     <section class="article-content">
     
     
-    <p>This is a test page for i18n support.</p>
-
+    
 </section>
 
 
@@ -527,14 +539,48 @@
 </script>
 <div id="particles-js"></div>
 
-<script src=https://xiaoFan03.github.io/background/particles.min.js></script>
+<script src="https://xiaoFan03.github.io/background/particles.min.js"></script>
 <script>
-  particlesJS.load('particles-js', "https://xiaoFan03.github.io/background/particlesjs-config.json", function() {
+  
+  particlesJS.load('particles-js', "https:\/\/xiaoFan03.github.io\/background\/particlesjs-config.json", function() {
     console.log('particles.js loaded - callback');
   });
+
+  
+  function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+
+
 </script>
 
 <style>
+
+   
   #particles-js {
     position: fixed;
     top: 0;
@@ -542,6 +588,20 @@
     width: 100%;
     z-index: -1;
   }
+
+   
+  #backTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        z-index: 99;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-image: url(https://xiaoFan03.github.io/icons/backTop.svg);
+    }
+
+
 </style>
 S
     </body>
